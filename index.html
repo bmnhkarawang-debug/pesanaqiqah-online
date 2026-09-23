@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pemesanan Aqiqah Nurul Hayat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    body { font-family: 'Poppins', sans-serif; background-color: #FFFBEB; }
+    
+    .card-option {
+      border: 2px solid #E5E7EB;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .card-option:hover { border-color: #FBBF24; }
+    input[type="radio"]:checked + .card-content,
+    input[type="checkbox"]:checked + .card-content {
+      border-color: #DC2626;
+      background-color: #FEF2F2;
+    }
+    .step-content { display: none; }
+    .step-content.active { display: block; }
+  </style>
+</head>
+<body class="py-6 px-3 sm:px-6">
+
+  <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-amber-200">
+    
+    <!-- HEADER -->
+    <div class="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 p-6 text-center text-white relative">
+      <div class="inline-block bg-white text-red-700 font-bold px-4 py-1 rounded-full text-xs tracking-wide uppercase mb-2 shadow-sm">
+        Pelopor Aqiqah Siap Saji
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight drop-shadow-sm">Aqiqah Nurul Hayat</h1>
+      <p class="text-amber-100 text-xs sm:text-sm mt-1">Jelas Lebih Berkualitas | Bersertifikat Halal MUI & Syar'i</p>
+    </div>
+
+    <!-- INDIKATOR LANGKAH -->
+    <div class="bg-amber-50 px-4 py-3 border-b border-amber-200 flex justify-between text-xs sm:text-sm font-semibold text-amber-900">
+      <span id="step-indicator">Langkah 1 dari 5: Data Pemesan</span>
+      <div class="flex space-x-1 items-center">
+        <div id="dot-1" class="w-3 h-3 rounded-full bg-red-600"></div>
+        <div id="dot-2" class="w-3 h-3 rounded-full bg-amber-200"></div>
+        <div id="dot-3" class="w-3 h-3 rounded-full bg-amber-200"></div>
+        <div id="dot-4" class="w-3 h-3 rounded-full bg-amber-200"></div>
+        <div id="dot-5" class="w-3 h-3 rounded-full bg-amber-200"></div>
+      </div>
+    </div>
+
+    <!-- FORM UTAMA -->
+    <form id="orderForm" class="p-6">
+
+      <!-- LANGKAH 1: DATA PEMESAN -->
+      <div id="step-1" class="step-content active space-y-4">
+        <h2 class="text-lg font-bold text-gray-800 border-b-2 border-red-600 pb-1 mb-3">DATA PEMESAN</h2>
+        
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Nama Pemesan <span class="text-red-500">*</span></label>
+          <input type="text" name="namaPemesan" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Alamat Lengkap <span class="text-red-500">*</span></label>
+          <textarea name="alamat" rows="2" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">No. WA/HP Utama <span class="text-red-500">*</span></label>
+            <input type="tel" name="waUtama" placeholder="08xxxxxxxxxx" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">No. WA/HP Cadangan <span class="text-red-500">*</span></label>
+            <input type="tel" name="waCadangan" placeholder="08xxxxxxxxxx" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Akun Medsos (IG/FB/TikTok)</label>
+          <input type="text" name="medsos" placeholder="@username" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Mengetahui Aqiqah Nurul Hayat dari</label>
+          <select name="sumberInfo" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+            <option value="">-- Pilih --</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Google Search">Google Search</option>
+            <option value="Rekomendasi Teman / Saudara">Rekomendasi Teman / Saudara</option>
+            <option value="Brosur">Brosur</option>
+            <option value="Spanduk">Spanduk</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Alasan memilih Aqiqah Nurul Hayat</label>
+          <input type="text" name="alasan" placeholder="Misal: Sudah terbukti halal & enak" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Pilihan Dokumentasi Pemotongan Kambing</label>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer hover:bg-gray-50">
+              <input type="radio" name="dokumentasi" value="Menyaksikan langsung" class="text-red-600 focus:ring-red-500">
+              <span class="text-sm text-gray-700">Menyaksikan langsung</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer hover:bg-gray-50">
+              <input type="radio" name="dokumentasi" value="Video Call" class="text-red-600 focus:ring-red-500">
+              <span class="text-sm text-gray-700">Video Call</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer hover:bg-gray-50">
+              <input type="radio" name="dokumentasi" value="Dokumentasi Foto/Video" checked class="text-red-600 focus:ring-red-500">
+              <span class="text-sm text-gray-700">Dokumentasi Foto/Video</span>
+            </label>
+          </div>
+          <p class="text-xs text-amber-700 mt-1 italic">*Pemotongan kambing InsyaAllah dilaksanakan minimal H-2</p>
+        </div>
+      </div>
+
+      <!-- LANGKAH 2: JADWAL PENGIRIMAN & DATA ANAK -->
+      <div id="step-2" class="step-content space-y-4">
+        <h2 class="text-lg font-bold text-gray-800 border-b-2 border-red-600 pb-1 mb-3">JADWAL PENGIRIMAN</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Tanggal Pengiriman <span class="text-red-500">*</span></label>
+            <input type="date" id="tglKirim" name="tglKirim" onchange="updateDayName(this.value)" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Hari Pengiriman</label>
+            <input type="text" id="hariKirim" name="hariKirim" readonly placeholder="Otomatis terisi" class="w-full mt-1 p-2.5 border rounded-lg bg-gray-100 text-gray-600 outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Pesanan Diterima Pukul <span class="text-red-500">*</span></label>
+            <input type="time" name="jamDiterima" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Konsumsi Pukul <span class="text-red-500">*</span></label>
+            <input type="time" name="jamKonsumsi" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+        </div>
+
+        <!-- HIMBAUAN JAM KIRIM -->
+        <div class="p-3 bg-amber-50 border-l-4 border-amber-500 text-amber-800 rounded-r-lg text-xs space-y-1">
+          <p class="font-bold flex items-center">
+            <svg class="w-4 h-4 mr-1 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Saran Waktu Pengiriman:
+          </p>
+          <p>Agar sajian hidangan tetap lezat, hangat, dan optimal saat dinikmati bersama para tamu, kami menyarankan waktu jam pesanan tiba diatur <strong>1 - 2 jam sebelum acara dimulai</strong>.</p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Patokan Rumah / Lokasi</label>
+          <input type="text" name="patokan" placeholder="Misal: Dekat Masjid Al-Ikhlas" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-800 border-b-2 border-red-600 pb-1 pt-4 mb-3">DATA ANAK YANG DIAQIQAHKAN</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-semibold text-gray-700">Nama Anak <span class="text-red-500">*</span></label>
+            <input type="text" name="namaAnak" required class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Bin / Binti</label>
+            <select name="binBinti" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+              <option value="Bin">Bin</option>
+              <option value="Binti">Binti</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Tempat Lahir Anak</label>
+            <input type="text" name="tempatLahirAnak" placeholder="Kota / Kabupaten" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Tanggal Lahir Anak</label>
+            <input type="date" name="tglLahirAnak" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Jenis Kelamin Anak <span class="text-red-500">*</span></label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="card-option rounded-lg p-3 text-center block">
+              <input type="radio" name="jenisKelamin" value="Laki-laki" onchange="autoSetKambing('Laki-laki')" class="hidden">
+              <div class="card-content p-2 border rounded-lg text-sm font-semibold text-gray-700">Laki-laki</div>
+            </label>
+            <label class="card-option rounded-lg p-3 text-center block">
+              <input type="radio" name="jenisKelamin" value="Perempuan" onchange="autoSetKambing('Perempuan')" class="hidden">
+              <div class="card-content p-2 border rounded-lg text-sm font-semibold text-gray-700">Perempuan</div>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Nama Ayah</label>
+            <input type="text" name="namaAyah" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Nama Ibu</label>
+            <input type="text" name="namaIbu" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGKAH 3: PAKET AQIQAH -->
+      <div id="step-3" class="step-content space-y-4">
+        <h2 class="text-lg font-bold text-gray-800 border-b-2 border-red-600 pb-1 mb-3">PAKET AQIQAH</h2>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">Jenis Kambing</label>
+            <div class="space-y-1">
+              <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+                <input type="radio" name="jenisKambing" value="Jantan" checked class="text-red-600">
+                <span class="text-sm">Jantan</span>
+              </label>
+              <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+                <input type="radio" name="jenisKambing" value="Betina" class="text-red-600">
+                <span class="text-sm">Betina</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Jumlah Kambing (ekor)</label>
+            <input type="number" id="jumlahKambing" name="jumlahKambing" value="1" min="1" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none font-bold text-center text-lg">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Tipe Kambing <span class="text-red-500">*</span></label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <label class="card-option block">
+              <input type="radio" name="tipeKambing" value="Platinum" class="hidden">
+              <div class="card-content p-3 border rounded-lg text-center text-sm font-semibold">Platinum</div>
+            </label>
+            <label class="card-option block">
+              <input type="radio" name="tipeKambing" value="Istimewa" class="hidden">
+              <div class="card-content p-3 border rounded-lg text-center text-sm font-semibold">Istimewa</div>
+            </label>
+            <label class="card-option block">
+              <input type="radio" name="tipeKambing" value="Super" class="hidden">
+              <div class="card-content p-3 border rounded-lg text-center text-sm font-semibold">Super</div>
+            </label>
+            <label class="card-option block">
+              <input type="radio" name="tipeKambing" value="Puas" class="hidden">
+              <div class="card-content p-3 border rounded-lg text-center text-sm font-semibold">Puas</div>
+            </label>
+            <label class="card-option block">
+              <input type="radio" name="tipeKambing" value="Hemat" class="hidden">
+              <div class="card-content p-3 border rounded-lg text-center text-sm font-semibold">Hemat</div>
+            </label>
+            <label class="card-option block">
+              <input type="radio" name="tipeKambing" value="Tasyakuran" class="hidden">
+              <div class="card-content p-3 border rounded-lg text-center text-sm font-semibold">Tasyakuran</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- PILIHAN TIPE PESANAN (BOX ATAU KAMBING MASAK NON KOTAKAN) -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Pilihan Format Pesanan <span class="text-red-500">*</span></label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="card-option rounded-lg p-2 text-center block">
+              <input type="radio" name="jenisFormatPesanan" value="Paket Nasi Box" checked onchange="toggleBoxOptions(true)" class="hidden">
+              <div class="card-content p-2.5 border rounded-lg text-xs sm:text-sm font-semibold text-gray-700">Paket Nasi Box</div>
+            </label>
+            <label class="card-option rounded-lg p-2 text-center block">
+              <input type="radio" name="jenisFormatPesanan" value="Kambing Masak (Non Kotakan)" onchange="toggleBoxOptions(false)" class="hidden">
+              <div class="card-content p-2.5 border rounded-lg text-xs sm:text-sm font-semibold text-gray-700">Kambing Masak (Non Kotakan)</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- OPIS PAKET NASI BOX (DAPAT DISAMBUNGIN/DISIMPANGKAN DENGAN TOGGLE) -->
+        <div id="containerNasiBox" class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">PILIHAN PAKET NASI BOX</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Nikmat 2" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Nikmat 2</div>
+              </label>
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Premium 3" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Premium 3</div>
+              </label>
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Hemat 1" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Hemat 1</div>
+              </label>
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Bento 1" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Bento 1</div>
+              </label>
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Bento 2" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Bento 2</div>
+              </label>
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Luxury 1" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Luxury 1</div>
+              </label>
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Luxury 2" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Luxury 2</div>
+              </label>
+              <label class="card-option block">
+                <input type="radio" name="pilihanPaket" value="Luxury 3" class="hidden">
+                <div class="card-content p-2 border rounded-lg text-center text-xs font-semibold">Luxury 3</div>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700">Jumlah Box</label>
+            <input type="number" id="jumlahBoxInput" name="jumlahBox" placeholder="Jumlah porsi/box" class="w-full mt-1 p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LANGKAH 4: OLAHAN MASAKAN -->
+      <div id="step-4" class="step-content space-y-4">
+        <h2 class="text-lg font-bold text-gray-800 border-b-2 border-red-600 pb-1 mb-3">PILIHAN OLAHAN MASAKAN</h2>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">1. Olahan Daging</label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanDaging" value="Sate" class="rounded text-red-600">
+              <span class="text-sm">Sate</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanDaging" value="Rica-rica" class="rounded text-red-600">
+              <span class="text-sm">Rica-rica</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanDaging" value="Krengseng" class="rounded text-red-600">
+              <span class="text-sm">Krengseng</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanDaging" value="Rendang" class="rounded text-red-600">
+              <span class="text-sm">Rendang</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer col-span-2 sm:col-span-1">
+              <input type="checkbox" id="chkDagingLainnya" name="olahanDaging" value="Lainnya" onchange="toggleCustomInput('chkDagingLainnya', 'inputDagingLainnya')" class="rounded text-red-600">
+              <span class="text-sm">Lainnya</span>
+            </label>
+          </div>
+          <input type="text" id="inputDagingLainnya" name="olahanDagingLainnya" placeholder="Tuliskan olahan daging lainnya..." class="hidden w-full mt-2 p-2 border rounded-lg text-sm focus:ring-2 focus:ring-amber-400 outline-none">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">2. Olahan Jeroan & Tulang</label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanJeroan" value="Gule" class="rounded text-red-600">
+              <span class="text-sm">Gule</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanJeroan" value="Krengseng" class="rounded text-red-600">
+              <span class="text-sm">Krengseng</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanJeroan" value="Rica-rica" class="rounded text-red-600">
+              <span class="text-sm">Rica-rica</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanJeroan" value="Tengkleng" class="rounded text-red-600">
+              <span class="text-sm">Tengkleng</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" name="olahanJeroan" value="Tongseng" class="rounded text-red-600">
+              <span class="text-sm">Tongseng</span>
+            </label>
+            <label class="flex items-center space-x-2 p-2 border rounded-lg cursor-pointer">
+              <input type="checkbox" id="chkJeroanLainnya" name="olahanJeroan" value="Lainnya" onchange="toggleCustomInput('chkJeroanLainnya', 'inputJeroanLainnya')" class="rounded text-red-600">
+              <span class="text-sm">Lainnya</span>
+            </label>
+          </div>
+          <input type="text" id="inputJeroanLainnya" name="olahanJeroanLainnya" placeholder="Tuliskan olahan jeroan/tulang lainnya..." class="hidden w-full mt-2 p-2 border rounded-lg text-sm focus:ring-2 focus:ring-amber-400 outline-none">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">3. Kepala & Kaki</label>
+          <div class="flex flex-wrap gap-4">
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="kepalaKaki" value="Diinfaqkan" checked class="text-red-600">
+              <span class="text-sm">Diinfaqkan</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="kepalaKaki" value="Dimasak" class="text-red-600">
+              <span class="text-sm">Dimasak</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="kepalaKaki" value="Diambil Mentah" class="text-red-600">
+              <span class="text-sm">Diambil Mentah</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">4. Kulit</label>
+          <div class="flex space-x-4">
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="kulit" value="Diinfaqkan" checked class="text-red-600">
+              <span class="text-sm">Diinfaqkan</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="kulit" value="Diambil (belum dibersihkan)" class="text-red-600">
+              <span class="text-sm">Diambil (belum dibersihkan)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGKAH 5: PESANAN TAMBAHAN & CATATAN -->
+      <div id="step-5" class="step-content space-y-4">
+        <h2 class="text-lg font-bold text-gray-800 border-b-2 border-red-600 pb-1 mb-3">PESANAN TAMBAHAN (OPSIONAL)</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Kantong Plastik Premium (@1.500)</span>
+            <input type="number" name="optPlastikPremium" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Air Mineral 330 ml (@3.000)</span>
+            <input type="number" name="optAirMineral" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Olahan Telur (@5.000)</span>
+            <input type="number" name="optTelur" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Olahan Ayam (@10.000)</span>
+            <input type="number" name="optAyam" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Olahan Mie (@4.000)</span>
+            <input type="number" name="optMie" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Frame Baby Born (@50.000)</span>
+            <input type="number" name="optFrame" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Tas Kain (@6.000)</span>
+            <input type="number" name="optTasKain" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+          <div class="flex items-center justify-between p-2 border rounded-lg">
+            <span>Kantong Plastik Luxury (@2.500)</span>
+            <input type="number" name="optPlastikLuxury" value="0" min="0" class="w-16 p-1 border rounded text-center">
+          </div>
+        </div>
+
+        <h2 class="text-lg font-bold text-gray-800 border-b-2 border-red-600 pb-1 pt-3 mb-2">CATATAN TAMBAHAN</h2>
+        <textarea name="catatan" rows="3" placeholder="Tulis jika ada permintaan khusus / tambahan..." class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-amber-400 outline-none"></textarea>
+      </div>
+
+      <!-- NAVIGASI TOMBOL -->
+      <div class="mt-6 flex justify-between items-center pt-4 border-t border-gray-200">
+        <button type="button" id="prevBtn" onclick="changeStep(-1)" class="hidden bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2.5 px-5 rounded-lg transition text-sm">
+          Kembali
+        </button>
+        <div class="ml-auto">
+          <button type="button" id="nextBtn" onclick="changeStep(1)" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 px-6 rounded-lg transition shadow text-sm">
+            Lanjut
+          </button>
+          <button type="submit" id="submitBtn" class="hidden bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-6 rounded-lg transition shadow text-sm">
+            Kirim Pemesanan
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- MODAL SUKSES -->
+  <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden p-4 z-50">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full text-center space-y-4 shadow-2xl">
+      <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">✓</div>
+      <h3 class="text-xl font-bold text-gray-800">Alhamdulillah, Pesanan Terkirim!</h3>
+      <p class="text-sm text-gray-600">
+        Terima kasih telah mempercayakan ibadah aqiqah Anda kepada <strong>Aqiqah Nurul Hayat</strong>. Data Anda sudah tersimpan dan akan segera kami proses.
+      </p>
+      <a id="waRedirectBtn" href="#" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg shadow transition text-sm">
+        Konfirmasi via WhatsApp Admin
+      </a>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    function toggleBoxOptions(show) {
+      const container = document.getElementById('containerNasiBox');
+      if (show) {
+        container.classList.remove('hidden');
+      } else {
+        container.classList.add('hidden');
+        // Uncheck pilihan paket nasi box & kosongkan jumlah box
+        const radios = container.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => r.checked = false);
+        document.getElementById('jumlahBoxInput').value = '';
+      }
+    }
+
+    function updateDayName(dateString) {
+      if (!dateString) {
+        document.getElementById('hariKirim').value = '';
+        return;
+      }
+      const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+      const date = new Date(dateString);
+      const dayName = days[date.getDay()];
+      document.getElementById('hariKirim').value = dayName;
+    }
+
+    function toggleCustomInput(checkboxId, inputId) {
+      const checkbox = document.getElementById(checkboxId);
+      const input = document.getElementById(inputId);
+      if (checkbox.checked) {
+        input.classList.remove('hidden');
+        input.focus();
+      } else {
+        input.classList.add('hidden');
+        input.value = '';
+      }
+    }
+
+    function autoSetKambing(gender) {
+      const inputKambing = document.getElementById('jumlahKambing');
+      if (gender === 'Laki-laki') {
+        inputKambing.value = 2;
+      } else if (gender === 'Perempuan') {
+        inputKambing.value = 1;
+      }
+    }
+
+    function changeStep(direction) {
+      if (direction === 1) {
+        if (!validateStep(currentStep)) return;
+      }
+      
+      currentStep += direction;
+      if (currentStep < 1) currentStep = 1;
+      if (currentStep > totalSteps) currentStep = totalSteps;
+
+      updateStepUI();
+    }
+
+    function validateStep(step) {
+      const stepDiv = document.getElementById('step-' + step);
+      const inputs = stepDiv.querySelectorAll('input[required], select[required], textarea[required]');
+      
+      for (let input of inputs) {
+        if (!input.value.trim()) {
+          input.classList.add('border-red-500');
+          input.focus();
+          alert('Mohon lengkapi kolom yang wajib diisi (*)');
+          return false;
+        } else {
+          input.classList.remove('border-red-500');
+        }
+      }
+
+      if (step === 2) {
+        const jkChecked = stepDiv.querySelector('input[name="jenisKelamin"]:checked');
+        if (!jkChecked) {
+          alert('Mohon pilih jenis kelamin anak.');
+          return false;
+        }
+      }
+
+      if (step === 3) {
+        const tipeChecked = stepDiv.querySelector('input[name="tipeKambing"]:checked');
+        if (!tipeChecked) {
+          alert('Mohon pilih tipe kambing.');
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function updateStepUI() {
+      for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById('step-' + i).classList.remove('active');
+        const dot = document.getElementById('dot-' + i);
+        if (i <= currentStep) {
+          dot.classList.remove('bg-amber-200');
+          dot.classList.add('bg-red-600');
+        } else {
+          dot.classList.remove('bg-red-600');
+          dot.classList.add('bg-amber-200');
+        }
+      }
+
+      document.getElementById('step-' + currentStep).classList.add('active');
+
+      const labels = [
+        'Langkah 1 dari 5: Data Pemesan',
+        'Langkah 2 dari 5: Pengiriman & Data Anak',
+        'Langkah 3 dari 5: Paket Aqiqah',
+        'Langkah 4 dari 5: Olahan Masakan',
+        'Langkah 5 dari 5: Pesanan Tambahan'
+      ];
+      document.getElementById('step-indicator').innerText = labels[currentStep - 1];
+
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const submitBtn = document.getElementById('submitBtn');
+
+      if (currentStep === 1) {
+        prevBtn.classList.add('hidden');
+      } else {
+        prevBtn.classList.remove('hidden');
+      }
+
+      if (currentStep === totalSteps) {
+        nextBtn.classList.add('hidden');
+        submitBtn.classList.remove('hidden');
+      } else {
+        nextBtn.classList.remove('hidden');
+        submitBtn.classList.add('hidden');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!validateStep(currentStep)) return;
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Mengirim Pesanan...';
+
+      const formData = new FormData(this);
+      const data = {};
+
+      formData.forEach((value, key) => {
+        if (data[key]) {
+          if (Array.isArray(data[key])) {
+            data[key].push(value);
+          } else {
+            data[key] = [data[key], value];
+          }
+        } else {
+          data[key] = value;
+        }
+      });
+
+      // Format olahan masakan
+      let arrayDaging = Array.isArray(data.olahanDaging) ? data.olahanDaging : (data.olahanDaging ? [data.olahanDaging] : []);
+      if (arrayDaging.includes('Lainnya') && data.olahanDagingLainnya) {
+        arrayDaging = arrayDaging.filter(item => item !== 'Lainnya');
+        arrayDaging.push('Lainnya (' + data.olahanDagingLainnya + ')');
+      }
+      data.olahanDaging = arrayDaging.join(', ');
+
+      let arrayJeroan = Array.isArray(data.olahanJeroan) ? data.olahanJeroan : (data.olahanJeroan ? [data.olahanJeroan] : []);
+      if (arrayJeroan.includes('Lainnya') && data.olahanJeroanLainnya) {
+        arrayJeroan = arrayJeroan.filter(item => item !== 'Lainnya');
+        arrayJeroan.push('Lainnya (' + data.olahanJeroanLainnya + ')');
+      }
+      data.olahanJeroan = arrayJeroan.join(', ');
+
+      let tambahanArr = [];
+      if (data.optPlastikPremium > 0) tambahanArr.push('Kantong Plastik Premium: ' + data.optPlastikPremium + ' pcs');
+      if (data.optAirMineral > 0) tambahanArr.push('Air Mineral 330ml: ' + data.optAirMineral + ' pcs');
+      if (data.optTelur > 0) tambahanArr.push('Olahan Telur: ' + data.optTelur + ' pcs');
+      if (data.optAyam > 0) tambahanArr.push('Olahan Ayam: ' + data.optAyam + ' pcs');
+      if (data.optMie > 0) tambahanArr.push('Olahan Mie: ' + data.optMie + ' pcs');
+      if (data.optFrame > 0) tambahanArr.push('Frame Baby Born: ' + data.optFrame + ' pcs');
+      if (data.optTasKain > 0) tambahanArr.push('Tas Kain: ' + data.optTasKain + ' pcs');
+      if (data.optPlastikLuxury > 0) tambahanArr.push('Kantong Plastik Luxury: ' + data.optPlastikLuxury + ' pcs');
+      
+      data.pesananTambahan = tambahanArr.join('; ');
+
+      google.script.run
+        .withSuccessHandler(function(response) {
+          if (response.success) {
+            let ttlString = (data.tempatLahirAnak || '-') + ', ' + (data.tglLahirAnak || '-');
+
+            // Format Nama Anak & Ayah dengan Bin/Binti
+            let namaAnakLengkap = (data.namaAnak || '-') + " " + (data.binBinti || '') + " " + (data.namaAyah || '');
+
+            // Pilihan Format Paket Box / non Kotakan
+            let detailPaketWA = "";
+            if (data.jenisFormatPesanan === 'Kambing Masak (Non Kotakan)') {
+              detailPaketWA = "Kambing Masak (Non Kotakan)";
+            } else {
+              detailPaketWA = (data.pilihanPaket || '-') + " (" + (data.jumlahBox || '-') + " box)";
+            }
+
+            let textWA = "*DATA PEMESANAN AQIQAH NURUL HAYAT*\n\n" +
+              "*PEMESAN*\n" +
+              "Nama: " + (data.namaPemesan || '-') + "\n" +
+              "Alamat: " + (data.alamat || '-') + "\n" +
+              "No. WA: " + (data.waUtama || '-') + "\n\n" +
+              "*JADWAL PENGIRIMAN*\n" +
+              "Hari/Tgl: " + (data.hariKirim || '-') + ", " + (data.tglKirim || '-') + "\n" +
+              "Jam Diterima: " + (data.jamDiterima || '-') + "\n" +
+              "Jam Konsumsi: " + (data.jamKonsumsi || '-') + "\n\n" +
+              "*DATA ANAK*\n" +
+              "Nama: " + namaAnakLengkap + "\n" +
+              "TTL: " + ttlString + "\n" +
+              "JK: " + (data.jenisKelamin || '-') + "\n" +
+              "Nama Ibu: " + (data.namaIbu || '-') + "\n\n" +
+              "*PAKET AQIQAH*\n" +
+              "Tipe Kambing: " + (data.tipeKambing || '-') + " (" + (data.jumlahKambing || '1') + " ekor)\n" +
+              "Paket Nasi Box: " + detailPaketWA;
+
+            let waUrl = "https://wa.me/6282322228843?text=" + encodeURIComponent(textWA);
+            document.getElementById('waRedirectBtn').href = waUrl;
+            document.getElementById('successModal').classList.remove('hidden');
+          } else {
+            alert('Gagal mengirim data: ' + response.message);
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Kirim Pemesanan';
+          }
+        })
+        .withFailureHandler(function(err) {
+          alert('Terjadi kesalahan jaringan/sistem: ' + err);
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Kirim Pemesanan';
+        })
+        .processForm(data);
+    });
+  </script>
+
+</body>
+</html>
